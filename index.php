@@ -1,14 +1,18 @@
 <?php
 
+
 require_once("vendor/autoload.php");
 
 use Calculator\Calculator;
 
-$operation = $argv[1];
+$operation = $_GET['op'];
+$params = explode(',',$_GET['params']);
+
 
 $calcObj = new Calculator();
 
-unset($argv[0]);
-unset($argv[1]);
-
-print($calcObj->$operation(...$argv));
+if(method_exists($calcObj,$operation)){
+print($calcObj->$operation(...$params));}
+else{
+    print("Unsupported Operation");
+}
