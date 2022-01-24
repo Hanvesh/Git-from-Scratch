@@ -1,14 +1,16 @@
 <?php
 
 namespace Calculator\Operations;
+
+
 /**
  * TODO: Implement Modulus function
  * TODO: Update Readme
  */
 class Modulus
 {
-    protected $num1;
-    protected $num2;
+    private $num1;
+    private $num2;
 
     public function __construct($num1, $num2)
     {

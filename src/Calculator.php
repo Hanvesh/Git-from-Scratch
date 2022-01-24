@@ -1,12 +1,13 @@
 <?php
 
 namespace Calculator;
-
+use Calculator\Contracts\Contracts;
 use Calculator\Operations\Exponent;
 use Calculator\Operations\Modulus;
 use Calculator\Operations\Square;
+use Calculator\Operations\Subtraction;
 
-class Calculator
+class Calculator implements Contracts
 {
     function exponent($num, $exponent): int
     {
@@ -20,8 +21,35 @@ class Calculator
     }
     function Square($num): int{
         $SquareObj = new Square($num);
+
         return $SquareObj->sqr();
     }
+    function Multiply($num1, $num2): int
+    {
+        $MultiplyObj = new Multiply($num1, $num2);
+        return $MultiplyObj ->multiply();
+    }
+    function Divide($num1, $num2): int
+    {
+        $DivideObj = new Divide($num1, $num2);
+        return $DivideObj ->divide();
+    }
+    function Percentage($num1, $num2): int
+    {
+        $PercentageObj = new Percentage($num1, $num2);
+        return $PercentageObj->Percentage();
+    }
+    function Add($num1, $num2): int
+    {
+        $addObj = new Add($num1, $num2);
+        return $addObj->add();
+    }
+    function Subtract($num1, $num2): int
+    {
+        $subtractObj = new Subtraction($num1, $num2);
+        return $subtractObj->subtract();
+    }
+
     // Write your functions below
 
 }
