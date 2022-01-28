@@ -1,0 +1,57 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Calculator\Operations\Add;
+use Calculator\Operations\Divide;
+use Calculator\Operations\Exponent;
+use Calculator\Operations\Modulus;
+use Calculator\Operations\Multiply;
+use Calculator\Operations\Percentage;
+use Calculator\Operations\Square;
+use Calculator\Operations\Subtraction;
+use Illuminate\Http\Request;
+
+class CalculOperations extends Controller
+{
+    function exponent($num, $exponent): int
+    {
+        $exponentObj = new Exponent($num, $exponent);
+        return $exponentObj->compute();
+    }
+    function Modulus($num1, $num2): int
+    {
+        $ModulusObj = new Modulus($num1, $num2);
+        return $ModulusObj->modulo();
+    }
+    function Square($num): int{
+        $SquareObj = new Square($num);
+
+        return $SquareObj->sqr();
+    }
+    function Multiply($num1, $num2): int
+    {
+        $MultiplyObj = new Multiply($num1, $num2);
+        return $MultiplyObj ->multiply();
+    }
+    function Divide($num1, $num2): int
+    {
+        $DivideObj = new Divide($num1, $num2);
+        return $DivideObj ->divide();
+    }
+    function Percentage($num1, $num2): int
+    {
+        $PercentageObj = new Percentage($num1, $num2);
+        return $PercentageObj->Percentage();
+    }
+    function Add($num1, $num2): int
+    {
+        $addObj = new Add($num1, $num2);
+        return $addObj->add();
+    }
+    function Subtract($num1, $num2): int
+    {
+        $subtractObj = new Subtraction($num1, $num2);
+        return $subtractObj->subtract();
+    } //
+}
